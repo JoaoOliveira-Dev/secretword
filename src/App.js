@@ -40,6 +40,7 @@ function App() {
     console.log(word);
 
     return {word, category};
+    
   }
 
   // Start the secret world game
