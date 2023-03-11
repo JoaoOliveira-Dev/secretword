@@ -1,16 +1,17 @@
 // Estilisação
 import "./Game.css";
 
-const Game = ({ verifyLetter }) => {
+const Game = ({ verifyLetter, pickedWord, pickedCategory, letters, wrongLetters, guesses, score }) => {
   return (
     <div className="game">
       <p className="points">
-        <span>Pontuação: 000</span>
+        <span>Pontuação: {score}</span>
       </p>
       <h1>Advinhe a palavra</h1>
       <h3 className="tip">
-        Dicas sobre a palavra: <span>Dica...</span>
+        Dicas sobre a palavra: <span>{pickedCategory}</span>
       </h3>
+      <p>Você ainda tem {guesses} tentativas(s).</p>
       <div className="wordContainer">
         <span className="letter">A</span>
         <span className="blankSquare"></span>
