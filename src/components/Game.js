@@ -1,7 +1,12 @@
+// Imports do React
+import { useEffect, useRef, useState } from "react";
+
 // Estilisação
 import "./Game.css";
 
-const Game = ({ verifyLetter, pickedWord, pickedCategory, letters, wrongLetters, guesses, score }) => {
+const Game = ({ verifyLetter, pickedWord, pickedCategory, letters, wrongLetters, guesses, guessedLetters, score }) => {
+  console.log("letters da Game: ", letters);
+
   return (
     <div className="game">
       <p className="points">
@@ -13,8 +18,16 @@ const Game = ({ verifyLetter, pickedWord, pickedCategory, letters, wrongLetters,
       </h3>
       <p>Você ainda tem {guesses} tentativas(s).</p>
       <div className="wordContainer">
-        <span className="letter">A</span>
-        <span className="blankSquare"></span>
+        {letters.map((letter, i) => {
+          guessedLetters.includes(letter) ? (
+            <span className="letter" key={i}>
+              {letter}
+            </span>
+          ) : (
+            <span className="blankSquare" key={i}></span>
+          );
+          }
+        )}
       </div>
       <div className="lettersContainer">
         <p>Tente adivinhar a letra:</p>
